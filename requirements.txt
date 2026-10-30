@@ -1,0 +1,17 @@
+# Core Mathematical & Data Stack
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
+scikit-learn==1.5.0
+
+# Visualization
+matplotlib==3.9.0
+
+# Presentation & Serving
+streamlit==1.36.0
+
+# Utilities & Data Acquisition
+requests==2.32.3
+
+# Testing Framework
+pytest==8.2.2

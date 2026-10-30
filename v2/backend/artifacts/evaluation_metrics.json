@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-10-30 12:36:46",
+  "dataset": "MovieLens 1M (ml-1m)",
+  "train_ratings": 597742,
+  "val_ratings": 197656,
+  "test_ratings": 204811,
+  "relevance_threshold": 4.0,
+  "evaluation_protocol": "Chronological per-user split (60/20/20); candidate space all unrated catalog items; IDCG with top-k relevant items",
+  "models": {
+    "TruncatedSVD": {
+      "n_factors": 30,
+      "random_state": 42,
+      "fit_time_seconds": 0.73,
+      "validation_metrics": {
+        "NDCG@10": 0.0989,
+        "MAP@10": 0.0509,
+        "RMSE": 1.0128,
+        "evaluated_users": 5981,
+        "total_eval_interactions": 197656
+      },
+      "test_metrics": {
+        "NDCG@10": 0.0802,
+        "MAP@10": 0.0388,
+        "RMSE": 1.0657,
+        "evaluated_users": 5982,
+        "total_eval_interactions": 204811
+      }
+    },
+    "PopularityBaseline": {
+      "damping": 50.0,
+      "fit_time_seconds": 0.3,
+      "validation_metrics": {
+        "NDCG@10": 0.0477,
+        "MAP@10": 0.0221,
+        "RMSE": 0.9998,
+        "evaluated_users": 5981,
+        "total_eval_interactions": 197656
+      },
+      "test_metrics": {
+        "NDCG@10": 0.0423,
+        "MAP@10": 0.0192,
+        "RMSE": 1.0149,
+        "evaluated_users": 5982,
+        "total_eval_interactions": 204811
+      }
+    }
+  },
+  "model_selection": {
+    "criterion": "Validation NDCG@10",
+    "winner": "TruncatedSVDRecommender(k=30)",
+    "svd_val_ndcg": 0.0989,
+    "popularity_val_ndcg": 0.0477
+  }
+}

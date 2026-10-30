@@ -1,0 +1,3 @@
+model,hyperparameters,val_ndcg@10,val_map@10,val_rmse,test_ndcg@10,test_map@10,test_rmse,fit_time_sec
+TruncatedSVDRecommender,"k=30, random_state=42",0.0989,0.0509,1.0128,0.0802,0.0388,1.0657,0.73
+PopularityBaseline,damping=50.0,0.0477,0.0221,0.9998,0.0423,0.0192,1.0149,0.3
