@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Movie, SimilarMovie } from '../types';
 import { api } from '../services/api';
+import { getSvgPosterDataUrl } from '../services/localCatalog';
 import { useAuth } from '../context/AuthContext';
 import { StarRating } from '../components/common/StarRating';
 import { HolographicMovieCard } from '../components/common/HolographicMovieCard';
@@ -146,6 +147,9 @@ export const MovieDetails: React.FC = () => {
                 src={api.posters.getUrl(movie.movie_id)}
                 alt={movie.title}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = getSvgPosterDataUrl(movie.title, movie.year);
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             </div>

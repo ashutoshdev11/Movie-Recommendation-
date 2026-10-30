@@ -27,9 +27,12 @@ venv/
 ENV/
 
 # Datasets (Strictly gitignored per GroupLens terms)
-data/
+/data/
+v2/backend/data/
 *.zip
 *.tar.gz
+!v2/frontend/src/data/**
+!v2/frontend/public/data/**
 
 # Node / Frontend Dependencies & Builds
 node_modules/

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Star, Bookmark, Check, Sparkles } from 'lucide-react';
 import { Movie } from '../../types';
 import { api } from '../../services/api';
+import { getSvgPosterDataUrl } from '../../services/localCatalog';
 import { useAuth } from '../../context/AuthContext';
 
 interface HolographicMovieCardProps {
@@ -128,7 +129,7 @@ export const HolographicMovieCard: React.FC<HolographicMovieCardProps> = ({
           )}
 
           <img
-            src={posterError ? `/api/v1/posters/${movie.movie_id}?placeholder=true` : posterUrl}
+            src={posterError ? getSvgPosterDataUrl(movie.title, movie.year) : posterUrl}
             alt={movie.title}
             loading="lazy"
             onLoad={() => setPosterLoaded(true)}

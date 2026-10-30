@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Movie } from '../types';
 import { api } from '../services/api';
+import { getSvgPosterDataUrl } from '../services/localCatalog';
 import { CosmicHeroCanvas } from '../components/3d/CosmicHeroCanvas';
 import { FeaturedCardHoloStage } from '../components/3d/FeaturedCardHoloStage';
 import { HolographicMovieCard } from '../components/common/HolographicMovieCard';
@@ -147,10 +148,7 @@ export const Home: React.FC = () => {
                       alt={featuredMovie.title}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        const target = e.currentTarget;
-                        if (!target.src.includes('placeholder=true')) {
-                          target.src = `/api/v1/posters/${featuredMovie.movie_id}?placeholder=true`;
-                        }
+                        e.currentTarget.src = getSvgPosterDataUrl(featuredMovie.title, featuredMovie.year);
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
