@@ -2,7 +2,7 @@ import axios from 'axios';
 import { CatalogResponse, Movie, RecommendedMovie, SimilarMovie, User, UserRating, WatchlistItem } from '../types';
 
 export const apiClient = axios.create({
-  baseURL: '/api/v1',
+  baseURL: import.meta.env.VITE_API_URL || '/api/v1',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
@@ -263,7 +263,8 @@ export const api = {
   posters: {
     getUrl: (movieId: number, options?: { backdrop?: boolean }): string => {
       const q = options?.backdrop ? '?backdrop=true' : '';
-      return `/api/v1/posters/${movieId}${q}`;
+      const base = import.meta.env.VITE_API_BASE_URL || '';
+      return `${base}/api/v1/posters/${movieId}${q}`;
     },
   },
 };

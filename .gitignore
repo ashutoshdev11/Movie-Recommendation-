@@ -31,6 +31,11 @@ data/
 *.zip
 *.tar.gz
 
+# Node / Frontend Dependencies & Builds
+node_modules/
+.npm/
+.vite/
+
 # Testing & Coverage
 .pytest_cache/
 .coverage
